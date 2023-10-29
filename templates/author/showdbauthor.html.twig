@@ -1,0 +1,33 @@
+
+
+<h1>Liste des Auteurs</h1>
+{{ form_start(f) }}
+{{ form_row(f) }}
+{{ form_end(f) }}  
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>username</td>
+        <td>email</td>
+        <td>nbrLivre</td>
+        <td>action</td>
+        <td>show</td>
+    </tr>
+    {%for a in author%}
+    <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.username}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.nbrLivre}}</td>
+        <td><a href="{{ path('editauthor', {'id': a.id}) }}">edit</a>
+        <a href="{{ path('deleteauthor', {'id': a.id}) }}">delete</a></td>
+        <td><a href="{{ path('showbookauthor', {'id': a.id}) }}">show</a></td>
+      
+    </tr>
+    {% endfor %}
+</table>
+<button><a href="{{ path('addformauthor') }}">Create New</a></button>
+<p>Delete authors whose number of books equals 0
+    <a href="{{path('deletenobooks')}}">Delete</a>
+</p>
+

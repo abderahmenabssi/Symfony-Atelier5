@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Details</title>
+</head>
+<body>
+
+<h1>Book</h1>
+<p>ref :{{ d.ref }}</p>
+<p>Title of Book :{{ d.title }}</p>
+<p>Publication date : {{ d.publicationDdate | date('Y-m-d') }}</p>
+<p>Author : {{ d.author.username }}</p>
+<p>category :{{ d.category }}</p>
+
+<p><a href="{{path('showbook')}}">back</a></p>
+</body>
+</html>

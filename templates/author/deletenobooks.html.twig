@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Delete Authors with 0 Books</h1>
+
+    {% if authorsWithoutBooks is empty %}
+        <p>No authors with 0 books found.</p>
+    {% else %}
+        <p>Authors with 0 books:</p>
+        <ul>
+            {% for author in authorsWithoutBooks %}
+                <li>{{ author.username }} <a href="{{ path('deleteauthor', {'id': author.id}) }}">Delete</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <a href="{{ path('showdbauthor') }}">Back to Home</a>
+{% endblock %}

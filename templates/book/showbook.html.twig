@@ -1,0 +1,48 @@
+
+<h1>Liste Des Livres</h1>
+{{ form_start(f) }}
+{{ form_row(f.ref) }}
+{{ form_end(f) }} 
+
+
+
+
+
+
+
+{% if books is empty %}
+    <p>Pas de livre</p>
+{% else %}
+<table border="3">
+    <tr>
+        
+        <td>title</td>
+        <td>Publication Date</td>
+        <td>category</td>
+        <td>published</td>
+        <td>author</td>
+        <td>action</td>
+    </tr>
+    {%for a in books%}
+    <tr>
+        
+        <td>{{a.title}}</td>
+        <td>{{a.publicationDdate | date('M-d-Y') }}</td>
+        <td>{{a.category}}</td>
+        
+        <td>{{a.published}}</td>
+        <td>{{a.author.username}}</td>
+        <td><a href="{{ path('editbook', {'ref': a.ref}) }}">edit</a>
+        <a href="{{ path('deletebook', {'ref': a.ref}) }}">delete</a>
+        <a href="{{path('showdetaille',{'ref':a.ref})}}">show</a></td>
+
+        
+        
+        
+    </tr>
+    {% endfor %}
+   
+</table>
+{% endif %}
+
+<button><a href="{{ path('addbook') }}">Create New</a></button>

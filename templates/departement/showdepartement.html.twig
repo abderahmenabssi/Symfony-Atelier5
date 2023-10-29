@@ -1,0 +1,19 @@
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>action</td>
+        
+    </tr>
+    {%for a in departement%}
+    <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.name}}</td>
+        <td><a href="{{ path('edit1', {'id': a.id}) }}">edit</a>
+        <a href="{{ path('delete1', {'id': a.id}) }}">delete</a></td>
+       
+        
+
+    </tr>
+    {% endfor %}
+</table>
